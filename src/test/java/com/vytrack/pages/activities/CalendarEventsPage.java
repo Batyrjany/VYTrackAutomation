@@ -31,7 +31,7 @@ public class CalendarEventsPage {
         //create locator for grid option based on the name
         String locator = "//td//label[text()='"+name+"']/../following-sibling::td//input";
         //find element
-        //you can also call Driver.get()
+        //you can also call Driver.get()VYTrackUtils.waitUntilLoaderScreenDisappear();
         WebElement gridOption = Driver.getDriver().findElement(By.xpath(locator));
         //if param yesOrNo is true, and checkbox is not selected yet
         //click on it
@@ -50,7 +50,8 @@ public class CalendarEventsPage {
     //otherwise return true
     public boolean verifyHeaderExists(String headerNameOrColumnName){
         for (WebElement tableHeader: headers){
-            if(tableHeader.getText().equals(headerNameOrColumnName)){
+           // System.out.println(tableHeader.getText());
+            if(tableHeader.getText().equalsIgnoreCase(headerNameOrColumnName)){
                 return true;
             }
         }

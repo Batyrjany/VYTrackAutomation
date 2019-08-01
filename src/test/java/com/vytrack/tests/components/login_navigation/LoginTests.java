@@ -13,20 +13,30 @@ public class LoginTests  extends TestBase {
 
     @Test
     public void loginTest1() {
+        extentLogger = report.createTest("Login as a store manager");
         LoginPage loginPage = new LoginPage();
         String username = ConfigurationReader.getProperty("storemanagerusername");
         String password = ConfigurationReader.getProperty("storemanagerpassword");
 
+       // loginPage.clickRememberMe();
         loginPage.login(username, password);
-        SeleniumUtils.waitPlease(2);
+
+        Assert.assertEquals(VYTrackUtils.getPageSubTitle(),"Dashboard");
+
+        extentLogger.pass("Verified that page is Dashboard");
+
+
     }
 
 
     @Test
     public void negativeLoginTest1() {
 
+        extentLogger = report.createTest("Login with invalid credentials");
             LoginPage loginPage = new LoginPage();
             loginPage.login("wrongusername", "wrongpassword");
+
+           // extentLogger.info()
             //SeleniumUtils.waitForVisibility(loginPage.errorMessageElement, 10);
             Assert.assertEquals(loginPage.getErrorMessage(), "Invalid user name or password.");
             SeleniumUtils.waitPlease(2);
