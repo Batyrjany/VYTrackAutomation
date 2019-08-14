@@ -64,6 +64,24 @@ public class LoginPage {
       //  Assert.assertEquals(VYTrackUtils.getPageSubTitle(),"Dashboard");
     }
 
+    public void login(String role) {
+        String username = "";
+        String password = "";
+        if (role.equalsIgnoreCase("driver")) {
+            username = ConfigurationReader.getProperty("driverusername");
+            password = ConfigurationReader.getProperty("driverpassword");
+        } else if (role.equalsIgnoreCase("store manager")) {
+            username = ConfigurationReader.getProperty("storemanagerusername");
+            password = ConfigurationReader.getProperty("storemanagerpassword");
+        } else if (role.equalsIgnoreCase("sales manager")) {
+            username = ConfigurationReader.getProperty("salesmanagerusername");
+            password = ConfigurationReader.getProperty("salesmanagerpassword");
+        }
+        userNameElement.sendKeys(username);
+        passwordElement.sendKeys(password);
+        loginButtonElement.click();
+    }
+
 
     public String getErrorMessage(){
 
@@ -78,5 +96,8 @@ public class LoginPage {
             rememberMeElement.click();
             SeleniumUtils.waitPlease(2);
         }
+    }
+    public void goToLandingPage() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"+ConfigurationReader.getProperty("environment")));
     }
 }
