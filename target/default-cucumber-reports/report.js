@@ -1,21 +1,24 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/test/resources/features/fleet/vehicles/Vehicles.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/test/resources/features/login/Login.feature");
 formatter.feature({
-  "name": "Vehicles",
-  "description": "  As truck driver should be able to see all Vehicle information once navigate to Vehicle page",
+  "name": "Login",
+  "description": "  As user I want to login under different roles",
   "keyword": "Feature",
   "tags": [
     {
-      "name": "@vehicles"
+      "name": "@VYT-4121"
     }
   ]
 });
 formatter.scenario({
-  "name": "Login as a driver and navigate to the Vehicles",
+  "name": "Login as a store manager",
   "description": "",
   "keyword": "Scenario",
   "tags": [
     {
-      "name": "@vehicles"
+      "name": "@VYT-4121"
+    },
+    {
+      "name": "@storemanager"
     }
   ]
 });
@@ -33,61 +36,21 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user logs in as a \"driver\"",
+  "name": "user logs in as a store manager",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "LoginStepDefinitions.user_logs_in_as_a(String)"
+  "location": "LoginStepDefinitions.user_logs_in_as_a_store_manager()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user navigates to \"Fleet\" and \"Vehicles\"",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "TopMenuStepDefinitions.user_navigates_to_and(String,String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user verifies that \"Cars\" page name is displayed",
+  "name": "user verifies that \"Dashboard\" page name is displayed",
   "keyword": "And "
 });
 formatter.match({
   "location": "LoginStepDefinitions.user_verifies_that_page_name_is_displayed(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user verifies that default page number is 1",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "VehiclesStepDefinitions.user_verifies_that_default_page_number_is(Integer)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user verifies that \"General Information\" about the car is displayed",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "VehiclesStepDefinitions.user_verifies_that_general_information_about_the_car_is_displayed(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user adds an event by clicking Add Event Button",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "VehiclesStepDefinitions.userAddsAnEventByClickingAddEventButton()"
 });
 formatter.result({
   "status": "passed"

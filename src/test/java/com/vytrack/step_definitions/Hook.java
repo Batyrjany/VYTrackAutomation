@@ -26,7 +26,7 @@ public class Hook {
             //will attach screenshot into report
             scenario.embed(image, "image/png");
         }
-        Driver.closeDriver();
+      //  Driver.closeDriver();
         System.out.println("AFTER");
     }
 //    @After(value = "@storemanager", order = 1)

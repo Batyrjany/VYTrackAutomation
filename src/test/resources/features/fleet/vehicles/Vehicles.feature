@@ -10,6 +10,7 @@ Feature: Vehicles
     And user verifies that "Cars" page name is displayed
     And user verifies that default page number is 1
     Then user verifies that "General Information" about the car is displayed
-    Then user adds an event by clicking Add Event Button
+    Then user adds an event by clicking Add Event Button and passing "driver" to title and "hello" to description
+    Then user verifies that an added event with "hello" message is displayed
 
 

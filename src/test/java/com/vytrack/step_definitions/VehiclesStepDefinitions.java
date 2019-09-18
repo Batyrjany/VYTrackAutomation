@@ -20,11 +20,19 @@ public class VehiclesStepDefinitions {
 
     }
 
-    @Then("user adds an event by clicking Add Event Button")
-    public void userAddsAnEventByClickingAddEventButton() {
+    @Then("user adds an event by clicking Add Event Button and passing {string} to title and {string} to description")
+    public void userAddsAnEventByClickingAddEventButtonAndPassingToTitleAndToDescription(String title, String description) {
+        pages.vehiclesPage().addEvent(title,description);
+    }
 
 
+    @Then("user verifies that an added event with {string} message is displayed")
+    public void userVerifiesThatAnAddedEventWithMessageIsDisplayed(String msg) {
+
+     Assert.assertEquals(msg,pages.vehiclesPage().description());
 
 
     }
+
+
 }
